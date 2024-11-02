@@ -20,8 +20,8 @@ FuncionTrig -> SEN ( Argumento ) | COS ( Argumento ) | TAN ( Argumento ) | COT (
                ARSINH ( Argumento ) | ARCOSH ( Argumento ) | ARTANH ( Argumento ) | ARCOTH ( Argumento ) |
                ARSECH ( Argumento ) | ARCCSCH ( Argumento )
 Argumento -> Expresion | VAR | NUM Potencia
-VAR -> a | ... | Z+
-NUM -> 0 | ... | 9+
+VAR -> a-Z+
+NUM -> 0-9+
 ```
 
 ## Colaboradores
