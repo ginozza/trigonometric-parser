@@ -4,7 +4,8 @@ Este proyecto implementa un parser en Rust que analiza y evalúa expresiones mat
 ## Gramática
 Se define como la siguiente:
 
-```1.	<Expresion> -> <Termino> <Expresion>
+```
+1.	<Expresion> -> <Termino> <Expresion>
 2.	<Expresion> -> +<Termino> <Expresion>  
 3.	<Expresion> ->  - <Termino>  <Expresion> 
 4.	<Expresion> ->   ε
