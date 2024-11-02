@@ -12,6 +12,7 @@ pub enum BinOp {
     Sub,
     Mul,
     Div,
+    Pow,
 }
 
 pub struct Parser<'a> {
@@ -67,6 +68,22 @@ impl<'a> Parser<'a> {
     }
 
     fn parse_factor(&mut self) -> Expr {
+        let mut left = self.parse_primary();
+
+        while self.current < self.tokens.len() {
+            match &self.tokens[self.current] {
+                super::Token::Caret => {
+                    self.current += 1;
+                    let right = self.parse_primary();
+                    left = Expr::BinOp(Box::new(left), BinOp::Pow, Box::new(right));
+                }
+                _ => break,
+            }
+        }
+        left
+    }
+
+    fn parse_primary(&mut self) -> Expr {
         if self.current >= self.tokens.len() {
             panic!("Unexpected end of input");
         }
@@ -111,4 +128,3 @@ impl<'a> Parser<'a> {
         }
     }
 }
-

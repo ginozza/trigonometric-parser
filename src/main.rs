@@ -5,7 +5,7 @@ use lexer::{tokenize, Token};
 use parser::Parser;
 
 fn main() {
-    let input = "sin(0.5) + cos(y) - tan(1.0)";
+    let input = "sin(0.5)^2 + cos(y) - tan(1.0)";
     
     let tokens = tokenize(input);
     

@@ -4,6 +4,7 @@ pub enum Token {
     Minus,
     Star,
     Slash,
+    Caret,
     OpenParen,
     CloseParen,
     Num(f64),
@@ -58,6 +59,10 @@ pub fn tokenize(input: &str) -> Vec<Token> {
             '/' => {
                 tokens.push(Token::Slash);
                 chars.next();
+            }
+            '^' => {
+            tokens.push(Token::Caret);
+            chars.next();
             }
             '(' => {
                 tokens.push(Token::OpenParen);
@@ -146,6 +151,7 @@ pub fn print_tokens(tokens: &[Token]) {
             Token::Minus => println!("Token: MINUS \"-\""),
             Token::Star => println!("Token: STAR \"*\""),
             Token::Slash => println!("Token: SLASH \"/\""),
+            Token::Caret => println!("Token: CARET \"^\""),
             Token::OpenParen => println!("Token: LParen \"(\""),
             Token::CloseParen => println!("Token: RParen \")\""),
             _ => println!("Token: {:?}", token),
