@@ -4,24 +4,52 @@ Este proyecto implementa un parser en Rust que analiza y evalúa expresiones mat
 ## Gramática
 Se define como la siguiente:
 
-```Expresion -> Termino Expresion'
-Expresion' -> + Termino Expresion' | - Termino Expresion' | ε
-Termino -> FactorConSigno Termino'
-Termino' -> * FactorConSigno Termino' | / FactorConSigno Termino' | ε
-FactorConSigno -> - Factor | Factor
-Factor -> FuncionTrig Potencia | ( Expresion ) Potencia | VAR | NUM Potencia
-Potencia -> ^ NUM | ε
-FuncionTrig -> SEN ( Argumento ) | COS ( Argumento ) | TAN ( Argumento ) | COT ( Argumento ) |
-               SEC ( Argumento ) | CSC ( Argumento ) |
-               ARCSEN ( Argumento ) | ARCCOS ( Argumento ) | ARCTAN ( Argumento ) | ARCCOT ( Argumento ) |
-               ARCSEC ( Argumento ) | ARCCSC ( Argumento ) |
-               SINH ( Argumento ) | COSH ( Argumento ) | TANH ( Argumento ) | COTH ( Argumento ) |
-               SECH ( Argumento ) | CSCH ( Argumento ) |
-               ARSINH ( Argumento ) | ARCOSH ( Argumento ) | ARTANH ( Argumento ) | ARCOTH ( Argumento ) |
-               ARSECH ( Argumento ) | ARCCSCH ( Argumento )
-Argumento -> Expresion | VAR | NUM Potencia
-VAR -> a-Z+
-NUM -> 0-9+
+```1.	<Expresion> -> <Termino> <Expresion>
+2.	<Expresion> -> +<Termino> <Expresion>  
+3.	<Expresion> ->  - <Termino>  <Expresion> 
+4.	<Expresion> ->   ε
+5.	<Termino> -> <FactorConSigno>  <Termino>  
+6.	<Termino> -> * <FactorConSigno>  <Termino>  
+7.	<Termino> -> / <FactorConSigno>  <Termino>  
+8.	<Termino> ->  ε
+9.	<FactorConSigno> -> - <Factor>
+10.	<FactorConSigno> ->  <Factor>
+11.	<Factor> -> <FuncionTrig>  <Potencia>  
+12.	<Factor> -> ( <Expresion>  ) <Potencia>  
+13.	<Factor> ->  <VAR> 
+14.	<Factor> ->  <NUM> <Potencia>
+15.	<Potencia> -> ^ <NUM> 
+16.	<Potencia> -> ε
+17.	<FuncionTrig> -> SEN ( <Argumento>) 
+18.	<FuncionTrig> -> COS ( <Argumento>)
+19.	<FuncionTrig> -> TAN ( <Argumento>) 
+20.	<FuncionTrig> -> COT ( <Argumento>) 
+21.	<FuncionTrig> ->SEC ( <Argumento>) 
+22.	<FuncionTrig> ->CSC ( <Argumento>) 
+23.	<FuncionTrig> -> ARCSEN ( <Argumento>) 
+24.	<FuncionTrig> -> ARCCOS ( <Argumento>) 
+25.	<FuncionTrig> -> ARCTAN ( <Argumento>) 
+26.	<FuncionTrig> -> ARCCOT ( <Argumento>) 
+27.	<FuncionTrig> ->ARCSEC ( Argumento ) 
+28.	<FuncionTrig> -> ARCCSC ( <Argumento>) 
+29.	<FuncionTrig> ->SINH ( <Argumento>) 
+30.	<FuncionTrig> ->COSH ( <Argumento>) 
+31.	<FuncionTrig> ->TANH ( <Argumento>) 
+32.	<FuncionTrig> -> COTH ( Argumento ) 
+33.	<FuncionTrig> ->SECH ( <Argumento>) 
+34.	<FuncionTrig> -> CSCH ( <Argumento>) 
+35.	<FuncionTrig> ->ARSINH ( <Argumento>)
+36.	<FuncionTrig> ->ARCOSH ( <Argumento>)
+37.	<FuncionTrig> ->ARTANH ( <Argumento>)
+38.	<FuncionTrig> ->ARCOTH ( Argumento )
+39.	<FuncionTrig> ->ARSECH ( <Argumento>) 
+40.	<FuncionTrig> ->ARCCSCH ( <Argumento>)
+41.	<Argumento> -> Expresion 
+42.	<Argumento> -> <VAR> 
+43.	<Argumento> -> <NUM> 
+44.	<Argumento> -> <Potencia>
+45.	<VAR> -> a-Z+
+46.	<NUM> -> 0-9+
 ```
 
 ## Colaboradores
