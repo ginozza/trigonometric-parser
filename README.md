@@ -25,12 +25,15 @@ NUM -> 0 | ... | 9+
 ```
 
 ## Colaboradores
-Este proyecto cuenta con la participación de:
+Este proyecto cuenta con la 
+
 <div style="display: flex; justify-content: center; align-items: center;">
   <a href="https://github.com/ginozza">
-    <img src="https://github.com/ginozza.png" alt="Juan Simancas" style="border-radius: 50%; width: 50px; height: 50px; margin-right: 10px;" />
+    <img src="https://github.com/ginozza.png" width="60px;" /><br />
+    <sub>ginozza</sub>
   </a>
-  <a href="https://github.com/sebastiann1212">
-    <img src="https://github.com/sebastiann1212.png" alt="Juan Sebastian Martinez" style="border-radius: 50%; width: 50px; height: 50px;" />
+  <a href="https://github.com/sebastiann1212" style="margin-left: 10px;">
+    <img src="https://github.com/sebastiann1212.png" width="60px;" /><br />
+    <sub>sebastiann1212</sub>
   </a>
 </div>
