@@ -57,13 +57,13 @@ La gramática de este parser está definida en las siguientes reglas, que cubren
 ```
 
 ### Explicación de las reglas
-- Expresiones (Expresion): Estas reglas definen las operaciones de suma y resta que se pueden realizar sobre términos, y cómo los términos se descomponen en factores.
+- **Expresiones (Expresion):** Estas reglas definen las operaciones de suma y resta que se pueden realizar sobre términos, y cómo los términos se descomponen en factores.
 
-- Operadores (Termino): Las operaciones de multiplicación y división se manejan en esta sección, y también se permite la recursión.
+- **Operadores (Termino):** Las operaciones de multiplicación y división se manejan en esta sección, y también se permite la recursión.
 
-- Funciones trigonométricas (FuncionTrig): La gramática soporta funciones trigonométricas estándar (como seno, coseno, tangente) y sus inversas (como arcseno, arcocoseno), incluyendo funciones hiperbólicas.
+- **Funciones trigonométricas (FuncionTrig):** La gramática soporta funciones trigonométricas estándar (como seno, coseno, tangente) y sus inversas (como arcseno, arcocoseno), incluyendo funciones hiperbólicas.
 
-- Argumentos: Los argumentos de las funciones trigonométricas pueden ser expresiones completas, variables o números.
+- **Argumentos:** Los argumentos de las funciones trigonométricas pueden ser expresiones completas, variables o números.
 
 ## Colaboradores
 Este proyecto es desarrollado y mantenido por:
@@ -73,23 +73,23 @@ Este proyecto es desarrollado y mantenido por:
 [<img src="https://github.com/sebastiann1212.png" width="60px;" /><br /><sub><a href="https://github.com/sebastiann1212">sebastiann1212</a></sub>](https://github.com/sebastiann1212)
 
 ## Uso
-1. Clonar el repositorio:
+1. **Clonar el repositorio:**
 ```bash
 git clone https://github.com/ginozza/trigonometric_functions_grammar.git
 cd trigonometric_functions_grammar
 ```
 
-2. Compilar el proyecto:
+2. **Compilar el proyecto:**
 ```bash
 cargo build
 ```
 
-3. Ejecutar el parser y proporcionar la expresión matemática:
+3. **Ejecutar el parser y proporcionar la expresión matemática:**
 ```bash
 cargo run
 ```
 
-4. Al ejecutar el comando anterior, el programa te pedirá que ingreses una expresión matemática para analizar. Escribe la expresión y presiona Enter. Por ejemplo:
+4. **Al ejecutar el comando anterior, el programa te pedirá que ingreses una expresión matemática para analizar. Escribe la expresión y presiona Enter. Por ejemplo:**
 ```scss
 sin(45)^2 + cos(xy)
 ```
@@ -99,18 +99,21 @@ El parser generará un Árbol de Sintaxis Abstracta (AST) representando la estru
 ## Contribuciones
 Si deseas mejorar, corregir o añadir nuevas características, sigue estos pasos:
 
-1. Haz un fork del repositorio
-Dirígete al repositorio y haz un fork para tener tu propia copia del proyecto.
+1. **Haz un fork del repositorio**  
 
-2. Crea una nueva rama
-Trabaja en una nueva rama para tus cambios, evitando realizar modificaciones directamente en la rama principal (main o master):
+   Dirígete al repositorio y haz un fork para tener tu propia copia del proyecto.
+
+2. **Crea una nueva rama**  
+
+   Trabaja en una nueva rama para tus cambios, evitando realizar modificaciones directamente en la rama principal (main o master).
 
 ```bash
 git checkout -b feature-branch
 ```
 
-3. Realiza tus cambios y haz un commit
-Haz tus modificaciones y asegúrate de que todo funcione correctamente. Los mensajes de commit deben seguir el enfoque de Conventional Commits para mantener consistencia y claridad en el historial de cambios.
+3. **Realiza tus cambios y haz un commit**
+
+    Haz tus modificaciones y asegúrate de que todo funcione correctamente. Los mensajes de commit deben seguir el enfoque de Conventional Commits para mantener consistencia y claridad en el historial de cambios.
 
 El formato de los mensajes de commit es el siguiente:
 
@@ -130,15 +133,17 @@ Ejemplo de un mensaje de commit:
 git commit -am 'feat: add trigonometric function parser'
 ```
 
-4. Realiza un push a tu rama
-Una vez que hayas hecho los cambios y commits necesarios, realiza un push a tu rama:
+4. **Realiza un push a tu rama** 
+
+    Una vez que hayas hecho los cambios y commits necesarios, realiza un push a tu rama:
 
 ```bash
 git push origin feature-branch
 ```
 
-5. Abre un pull request
-Ve al repositorio original y abre un pull request explicando brevemente qué cambios realizaste y por qué. Incluye detalles sobre la funcionalidad nueva o el error que has corregido.
+5. **Abre un pull request** 
+
+    Ve al repositorio original y abre un pull request explicando brevemente qué cambios realizaste y por qué. Incluye detalles sobre la funcionalidad nueva o el error que has corregido.
 
 ## Licencia
 
