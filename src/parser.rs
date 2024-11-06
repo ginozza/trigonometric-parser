@@ -87,7 +87,7 @@ impl<'a> Parser<'a> {
         if self.current >= self.tokens.len() {
             panic!("Unexpected end of input");
         }
-
+    
         match &self.tokens[self.current] {
             super::Token::OpenParen => {
                 self.current += 1;
@@ -103,6 +103,7 @@ impl<'a> Parser<'a> {
                 self.current += 1;
                 Expr::Var(v.clone())
             }
+
             super::Token::Sin | super::Token::Cos | super::Token::Tan => {
                 let func = match &self.tokens[self.current] {
                     super::Token::Sin => "sin".to_string(),
@@ -111,13 +112,40 @@ impl<'a> Parser<'a> {
                     _ => unreachable!(),
                 };
                 self.current += 1;
-                self.expect(super::Token::OpenParen);
-                let arg = self.parse_expression();
-                self.expect(super::Token::CloseParen);
-                Expr::Func(func, Box::new(arg))
+    
+                let mut func_expr = if let Some(super::Token::Caret) = self.tokens.get(self.current) {
+                    self.current += 1;
+                    let exp = self.parse_primary(); // Capturar el exponente
+                    Expr::BinOp(Box::new(Expr::Func(func, Box::new(self.parse_primary()))), BinOp::Pow, Box::new(exp))
+                } else {
+                    self.expect(super::Token::OpenParen);
+                    let arg = self.parse_expression();
+                    self.expect(super::Token::CloseParen);
+                    Expr::Func(func, Box::new(arg))
+                };
+    
+                func_expr = self.check_for_pow(func_expr);
+    
+                func_expr
             }
             _ => panic!("Unexpected token: {:?}", self.tokens[self.current]),
         }
+    }    
+
+    fn check_for_pow(&mut self, left: Expr) -> Expr {
+        let mut result = left;
+
+        while self.current < self.tokens.len() {
+            if let super::Token::Caret = &self.tokens[self.current] {
+                self.current += 1;
+                let right = self.parse_primary();
+                result = Expr::BinOp(Box::new(result), BinOp::Pow, Box::new(right));
+            } else {
+                break;
+            }
+        }
+
+        result
     }
 
     fn expect(&mut self, expected: super::Token) {
