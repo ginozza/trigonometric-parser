@@ -5,65 +5,7 @@ Este proyecto implementa un analizador sintáctico (parser) en Rust para evaluar
 El parser es capaz de manejar expresiones matemáticas con operadores aritméticos básicos, funciones trigonométricas, y potencias. La salida del parser es un árbol de sintaxis abstracta (AST) que se puede usar para evaluar la expresión, generar código o realizar transformaciones adicionales.
 
 ## Gramática
-La gramática de este parser está definida en las siguientes reglas, que cubren las operaciones matemáticas estándar, funciones trigonométricas, y potencias:
-
-```
-1.	<Expresion> -> <Termino> <Expresion>
-2.	<Expresion> -> +<Termino> <Expresion>  
-3.	<Expresion> ->  - <Termino>  <Expresion> 
-4.	<Expresion> ->   ε
-5.	<Termino> -> <FactorConSigno>  <Termino>  
-6.	<Termino> -> * <FactorConSigno>  <Termino>  
-7.	<Termino> -> / <FactorConSigno>  <Termino>  
-8.	<Termino> ->  ε
-9.	<FactorConSigno> -> - <Factor>
-10.	<FactorConSigno> ->  <Factor>
-11.	<Factor> -> <FuncionTrig>  <Potencia>  
-12.	<Factor> -> ( <Expresion>  ) <Potencia>  
-13.	<Factor> ->  <VAR> 
-14.	<Factor> ->  <NUM> <Potencia>
-15.	<Potencia> -> ^ <NUM> 
-16.	<Potencia> -> ε
-17.	<FuncionTrig> -> SEN ( <Argumento>) 
-18.	<FuncionTrig> -> COS ( <Argumento>)
-19.	<FuncionTrig> -> TAN ( <Argumento>) 
-20.	<FuncionTrig> -> COT ( <Argumento>) 
-21.	<FuncionTrig> ->SEC ( <Argumento>) 
-22.	<FuncionTrig> ->CSC ( <Argumento>) 
-23.	<FuncionTrig> -> ARCSEN ( <Argumento>) 
-24.	<FuncionTrig> -> ARCCOS ( <Argumento>) 
-25.	<FuncionTrig> -> ARCTAN ( <Argumento>) 
-26.	<FuncionTrig> -> ARCCOT ( <Argumento>) 
-27.	<FuncionTrig> ->ARCSEC ( Argumento ) 
-28.	<FuncionTrig> -> ARCCSC ( <Argumento>) 
-29.	<FuncionTrig> ->SINH ( <Argumento>) 
-30.	<FuncionTrig> ->COSH ( <Argumento>) 
-31.	<FuncionTrig> ->TANH ( <Argumento>) 
-32.	<FuncionTrig> -> COTH ( Argumento ) 
-33.	<FuncionTrig> ->SECH ( <Argumento>) 
-34.	<FuncionTrig> -> CSCH ( <Argumento>) 
-35.	<FuncionTrig> ->ARSINH ( <Argumento>)
-36.	<FuncionTrig> ->ARCOSH ( <Argumento>)
-37.	<FuncionTrig> ->ARTANH ( <Argumento>)
-38.	<FuncionTrig> ->ARCOTH ( Argumento )
-39.	<FuncionTrig> ->ARSECH ( <Argumento>) 
-40.	<FuncionTrig> ->ARCCSCH ( <Argumento>)
-41.	<Argumento> -> Expresion 
-42.	<Argumento> -> <VAR> 
-43.	<Argumento> -> <NUM> 
-44.	<Argumento> -> <Potencia>
-45.	<VAR> -> a-Z+
-46.	<NUM> -> 0-9+
-```
-
-### Explicación de las reglas
-- **Expresiones (Expresion):** Estas reglas definen las operaciones de suma y resta que se pueden realizar sobre términos, y cómo los términos se descomponen en factores.
-
-- **Operadores (Termino):** Las operaciones de multiplicación y división se manejan en esta sección, y también se permite la recursión.
-
-- **Funciones trigonométricas (FuncionTrig):** La gramática soporta funciones trigonométricas estándar (como seno, coseno, tangente) y sus inversas (como arcseno, arcocoseno), incluyendo funciones hiperbólicas.
-
-- **Argumentos:** Los argumentos de las funciones trigonométricas pueden ser expresiones completas, variables o números.
+La gramática de este parser está documentada en detalle en el archivo [gramatica.md](https://github.com/ginozza/trigonometric-parser/blob/main/gramatica.md).
 
 ## Colaboradores
 Este proyecto es desarrollado y mantenido por:
